@@ -25,7 +25,7 @@ class StudentController extends Controller
             'jurusan'=>$request->jurusan
         ];
 
-        $students=Student::create($input);
+        $student=Student::create($input);
         $data=[
             'message' => 'Student has been created succesfully',
             'data' => $student,

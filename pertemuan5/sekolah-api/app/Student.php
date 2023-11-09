@@ -8,8 +8,11 @@ use Illuminate\Support\Facades\DB;
 
 class Student extends Model
 {
-    static function getAllstudents(){
-        $students = DB::select('select * from students');
-        return $students;
-    }
+    protected $table = 'students';
+    protected $fillable = ['nama', 'nim','email','jurusan'];
+
+   // static function getAllstudents(){
+     //   $students = DB::select('select * from students');
+      //  return $students;
+    //}
 }
