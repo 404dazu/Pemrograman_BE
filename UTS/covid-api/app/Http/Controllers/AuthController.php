@@ -12,7 +12,7 @@ class AuthController extends Controller
     // membuat akun authentikasi.
     public function register(Request $request){
         $input=[
-            'nama'=>$request->nama,
+            'name'=>$request->name,
             'email'=>$request->email,
             'password'=>Hash::make($request->password),
         ];

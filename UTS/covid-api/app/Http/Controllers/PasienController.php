@@ -21,7 +21,7 @@ class PasienController extends Controller
     public function store(Request $request){
         $validated = $request->validate([
             'nama'=>'required|string|min:2|max:100',
-            'phone'=>'required|integer|min:8|max:13',
+            'phone'=>'required|numeric',
             'address'=>'required|string|min:2|max:1000',
             'status'=>'required|string|min:2|max:3',
             'in_date_at'=>'required|date',
