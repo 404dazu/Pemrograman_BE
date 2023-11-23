@@ -22,7 +22,7 @@ class AuthController extends Controller
         ];
         return response()->json($data, 200);
     }
-
+// Membuat login untuk mendapatkan tokenAPI
     public function login(Request $request){
         $input = [
             'email'=>$request->email,
