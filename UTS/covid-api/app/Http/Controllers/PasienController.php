@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class PasienController extends Controller
 {
+    // Mengambil data pasien ( index )
     public function index(){
         $patients = Pasien::all();
         $data=[
@@ -17,6 +18,8 @@ class PasienController extends Controller
 
         return response()->json($data,200);
     }
+
+    // Membuat data pasien dengan menggunakan required
 
     public function store(Request $request){
         $validated = $request->validate([
@@ -41,6 +44,7 @@ class PasienController extends Controller
         'in_date_at'=>'Masukkan tanggal dengan benar!'
 
     ]);
+    // Jika data pasien telah dibuat akan dikirim ke DB
 
         $patient=Pasien::create($validated);
         $data=[
@@ -50,7 +54,7 @@ class PasienController extends Controller
 
         return response()->json($data, 201);
     }
-
+    // Mengambil data pasien dengan menggunakan ID
     public function show($id){
         $patient=Pasien::find($id);
         if($patient){
@@ -70,7 +74,7 @@ class PasienController extends Controller
             return response()->json($data, 404);
         }
     }
-
+    // Mengubah data pasien lewat ID
     public function update(Request $request,$id){
         $patient=Pasien::find($id);
         if($patient){
@@ -96,7 +100,7 @@ class PasienController extends Controller
             return response()->json($data,404);
         }
     }
-
+// Mendelete data pasien lewat ID
     public function destroy($id){
         $patient = Pasien::find($id);
         if($patient){
@@ -119,7 +123,7 @@ class PasienController extends Controller
     }
 
     public function search($name){
-        $patient = Pasien::where('nama_pasien', 'Like', '%' . $name . '%')->get();
+        $patient = Pasien::where('nama', 'Like', '%' . $name . '%')->get();
         if($patient){
         $data = [
             'message' => 'data ditemukan: ',
