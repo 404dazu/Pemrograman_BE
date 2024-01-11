@@ -44,6 +44,7 @@ app.get("/students", (req, res) => {
 });
 
 app.post("/students", (req, res) => {
+  const { nama } = req.body;
   res.send("Menambahkan data student");
 });
 
